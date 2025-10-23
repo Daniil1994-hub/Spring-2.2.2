@@ -19,10 +19,10 @@ public class CarServiceImpl {
 
     public List<Car> getCarList(int count) {
         List<Car> carList;
-        if (count > 5 || count < 0) {
+        if (count < 0) {
             carList = carDao.getCarList().stream().limit(5).toList();
         } else {
-            carList = carDao.getCarList().stream().limit(5).toList();
+            carList = carDao.getCarList().stream().limit(count).toList();
         }
         return carList;
     }
